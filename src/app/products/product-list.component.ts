@@ -6,6 +6,10 @@ import { Component } from "@angular/core";
 })
 export class ProductListComponent {
   pageTitle: string = 'Product List';
+  imageWidth: number = 50;
+  imageMargin: number = 2;
+  showImage: boolean = false;
+  filter: string = '';
   products: any[] = [{
     id: 2,
     name: 'Garden Cart',
@@ -23,4 +27,21 @@ export class ProductListComponent {
     rating: 4.8,
     image: 'assets/images/hammer.png'
   }];
+  allProducts: any[] = [];
+
+  toggleImage(): void {
+    this.showImage = !this.showImage;
+  }
+
+  matchesFilter(name: string): boolean {
+    return !this.filter || name.toLowerCase().includes(this.filter.toLowerCase());
+  }
+
+  filterProducts(): void {
+    if(this.allProducts.length === 0) {
+      this.allProducts = this.products;
+    }
+
+    this.products = this.allProducts.filter(p => this.matchesFilter(p.name));
+  }
 }
