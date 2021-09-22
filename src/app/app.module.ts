@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './products/product-list.component';
 import { ConvertToSpacePipe } from './shared/convert-to-space.pipe';
 import { EurifyPipe } from './shared/eurify.pipe';
+import { StarComponent } from './shared/star.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     ConvertToSpacePipe,
-    EurifyPipe
+    EurifyPipe,
+    StarComponent
   ],
   imports: [
     BrowserModule,
