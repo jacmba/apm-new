@@ -40,7 +40,7 @@
             <td>{{product.code | lowercase | convertToSpace:'-'}}</td>
             <td>{{product.releaseDate}}</td>
             <td>{{product.price | number:'1.2-2' | eurify}}</td>
-            <td>{{product.rating}}</td>
+            <td><pm-star [rating]="product.rating" (ratingClicked)="onRatingClicked($event)"></pm-star></td>
           </tr>
         </tbody>
       </table>
