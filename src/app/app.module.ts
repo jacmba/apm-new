@@ -4,11 +4,15 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './products/product-list.component';
+import { ConvertToSpacePipe } from './shared/convert-to-space.pipe';
+import { EurifyPipe } from './shared/eurify.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent
+    ProductListComponent,
+    ConvertToSpacePipe,
+    EurifyPipe
   ],
   imports: [
     BrowserModule,

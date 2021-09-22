@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-md-2">Filter by:</div>
       <div class="col-md-4">
-        <input type="text" [(ngModel)]="filter" (ngModelChange)="filterProducts()"/>
+        <input type="text" [(ngModel)]="filter"/>
       </div>
     </div>
     <div class="row">
@@ -37,9 +37,9 @@
                 [style.margin.px]="imageMargin" *ngIf="showImage">
             </td>
             <td>{{product.name}}</td>
-            <td>{{product.code | lowercase}}</td>
+            <td>{{product.code | lowercase | convertToSpace:'-'}}</td>
             <td>{{product.releaseDate}}</td>
-            <td>{{product.price | currency:'EUR':'symbol':'1.2-2' | lowercase}}</td>
+            <td>{{product.price | number:'1.2-2' | eurify}}</td>
             <td>{{product.rating}}</td>
           </tr>
         </tbody>
