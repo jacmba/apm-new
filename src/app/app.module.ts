@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { ProductDetailComponent } from './products/product-detail.component';
 import { WelcomeComponent } from './shared/welcome.component';
 import { NotFoundComponent } from './shared/not-found.component';
+import { ProductDetailGuard } from './products/product-detail.guard';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { NotFoundComponent } from './shared/not-found.component';
   ],
   imports: [BrowserModule, FormsModule, HttpClientModule, RouterModule.forRoot([
     {path: 'products', component: ProductListComponent},
-    {path: 'products/:id', component: ProductDetailComponent},
+    {path: 'products/:id', component: ProductDetailComponent, canActivate: [ProductDetailGuard]},
     {path: 'welcome', component: WelcomeComponent},
     {path: '', redirectTo: 'welcome', pathMatch: 'full'},
     {path: '**', component: NotFoundComponent}
